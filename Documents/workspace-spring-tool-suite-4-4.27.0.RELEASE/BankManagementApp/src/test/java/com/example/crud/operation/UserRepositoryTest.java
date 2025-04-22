@@ -1,5 +1,5 @@
 package com.example.crud.operation;
 
-public class OperationRepositoryTest {
+public class UserRepositoryTest {
 
 }
