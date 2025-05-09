@@ -26,4 +26,10 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
+
+    @Override
+    public Item getItemById(Long id) {
+        // TODO Auto-generated method stub
+        return itemRepository.findById(id).orElse(null);
+    }
 }

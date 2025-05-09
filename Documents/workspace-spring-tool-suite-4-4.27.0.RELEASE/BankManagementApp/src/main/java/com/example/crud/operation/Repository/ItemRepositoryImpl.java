@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
@@ -48,4 +49,11 @@ public class ItemRepositoryImpl implements ItemRepository {
 	public List<Item> findAll() {
 		return jdbcTemplate.query("SELECT * FROM item", new BeanPropertyRowMapper<>(Item.class));
 	}
+
+    @Override
+    public Optional<Item> findById(Long id) {
+        String sql = "SELECT * FROM item WHERE id = ?";
+        List<Item> items = jdbcTemplate.query(sql, new Object[]{id}, new BeanPropertyRowMapper<>(Item.class));
+        return items.isEmpty() ? Optional.empty() : Optional.of(items.get(0));
+    }
 }
