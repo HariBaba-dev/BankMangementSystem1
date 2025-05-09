@@ -9,4 +9,5 @@ import org.springframework.http.ResponseEntity;
 public interface ItemController {
     ResponseEntity<Item> addItem(Item item);
     List<Item> getAllItems();
+    Item getItemById(Long id);
 }

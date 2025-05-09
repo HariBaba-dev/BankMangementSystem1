@@ -27,6 +27,12 @@ public class ItemControllerImpl implements ItemController {
 		// TODO Auto-generated method stub
 		return itemService.getAllItems();
 	}
+
+    @GetMapping("/{id}")
+    public Item getItemById(@PathVariable Long id) {
+        // TODO Auto-generated method stub
+        return itemService.getItemById(id);
+    }
 }
 
 
